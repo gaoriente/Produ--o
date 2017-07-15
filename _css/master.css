@@ -1,4 +1,4 @@
-.body{
+	.body{
  
      background: url(../_img/third.jpg);
      background-repeat:no-repeat;
@@ -40,7 +40,7 @@ div#interface{
 }
 
 header#cabecalho{
-    height: 150px;
+    height: 80px;
     border-bottom: 1px #D6D6D6 solid;
     background-image: url(../_imagens/background_restaurante.jpg);
 }
@@ -95,7 +95,7 @@ nav#menu li:hover ul{
 nav#menu li:hover li {
     position: relative;
     float: none;
-    font: 80% Calibri;
+    font: 80% Arial;
     background-color:#EDEDED;
     padding: 0px ;
 }
@@ -112,7 +112,6 @@ nav#menu li:hover ul li:hover{
 section{
     position:relative;
     font: 100% Calibri;
-    
     width: 80%;
     margin: auto;
 }
@@ -123,7 +122,7 @@ section#corpo{
     padding: 5px 20px 5px 20px   ;
 }
 
-h3 {
+label {
     text-align: justify;
     Color: white !important;    
 }
@@ -145,3 +144,33 @@ footer{
     bottom:0;
     width:100%;
 }
+
+.col-md-2{
+    width: 16% !important;
+    margin: 2px;
+}
+
+.row{
+	margin: 10px !important;
+}
+
+#btns{
+	text-align: rigth !important;
+	position:absolute;
+	left: 70% !important;
+	padding: 10px;	
+	marging: 10px;
+}
+
+legend{
+	Color: white !important;
+	padding: 0px !important;
+	marging: 0px !important;
+	
+}
+
+#txtNumeroDestinatario, #txtNumero{   
+    width:75px !important;
+}
+
+

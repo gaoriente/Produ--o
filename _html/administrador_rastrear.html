@@ -37,7 +37,7 @@
                   </div>
                   <ul class="s-12 l-2">
                      <li class="logo hide-s hide-m">
-                     	<img src="../_img/logo.jpg" alt="">
+                        <img src="../_img/logo.jpg" alt="">
                         <!--<a href="../design/"><br /><strong>SILEN</strong></a> -->
                      </li>
                   </ul>
@@ -55,8 +55,9 @@
             </div>
          </nav>
       </header>
+
       <section>
-         <!-- CAROUSEL -->  	
+         <!-- CAROUSEL -->    
          <div id="carousel">
             <div id="owl-demo" class="owl-carousel owl-theme">
                 <div class="item">
@@ -64,18 +65,79 @@
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
-                           <h2>Sistema Logistico de Entrega</h2>
-                        </div>
-                        <div class="s-12 l-9">
-                           <p>Saiba onde está sua encomenda
-                           </p>
+                  <section>
+           <div align="middle" >
+               <font style="font-size: 30px; background-color:white" color="black" > 
+                RASTREAR ENTREGA: 
+               </font> 
+           </div>
+        </section>
+
+        <table align='center'>
+        <tr align='center'>
+        <td align='center'>
+          <table width="40%" border="1"> 
+          <tr>
+            <td height="30" width="30%">ID Entrega: </td>
+            <td height="19" width="30%"><input type="text" name="idE" size="30" ></td>
+            <td height="19" width="30%">ID Funcionario: </td>
+            <td height="19" width="30%"><input type="text" name="idF" size="30" ></td>
+            <td height="19" width="30%">Endereço: </td>
+            <td height="19" width="30%"><input type="text" name="endereço" size="30" ></td>
+          </tr> 
+          <tr>
+            <td height="30" width="30%">Bairro: </td>
+            <td height="19" width="30%"><input type="text" name="bairro" size="30" ></td>
+            <td height="19" width="30%">UF: </td>
+            <td height="19" width="30%"><input type="text" name="uf" size="30" ></td>
+            <td height="19" width="30%">Contato: </td>
+            <td height="19" width="30%"><input type="text" name="contato" size="30" ></td>
+          </tr> 
+          <tr>
+            <td height="19" width="30%">Tipo de Entrega: </td>
+            <td height="19" width="30%"><input type="text" name="tipo" size="30" ></td>
+            <td height="19" width="30%">Data: </td>
+            <td height="19" width="30%"><input type="text" name="data" size="30" ></td>
+            <td height="19" width="30%">Nome: </td>
+            <td height="19" width="30%"><input type="text" name="nome" size="30" ></td>
+          </tr> 
+          <tr>
+            <td height="19" width="25%">  </td>
+            <td height="19" width="75%">
+            <input type="submit" name="buscar" value="buscar">
+            <input type="submit" name="limpar" value="limpar">
+          </td>
+        </tr> 
+    </table>
+    </td></tr></table>
+
+<section>
+           <div align="middle" >
+               <font style="font-size: 30px; background-color:white" color="black" > 
+                STATUS: 
+               </font> 
+           </div>
+        </section>
+
+    <table align='center'>
+            <tr>
+           <td><IMG src="../_img/e1.jpg" WIDTH=100%></td>
+           <td><IMG src="../_img/seta.jpg" WIDTH=100%></td>
+           <td><IMG src="../_img/e2.jpg" WIDTH=100%></td>
+           <td><IMG src="../_img/seta.jpg" WIDTH=100%></td>
+           <td><IMG src="../_img/e3.jpg" WIDTH=100%></td>
+           <td><IMG src="../_img/seta.jpg" WIDTH=100%></td>
+           <td><IMG src="../_img/e4.jpg" WIDTH=100%></td>
+         </tr>
+         </table>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-         </div>	
-		</section>
+         </div>   
+       </section>
+       
       <!-- FOOTER -->   
       <footer>
          <div class="line">
@@ -94,20 +156,20 @@
       <script type="text/javascript">
          jQuery(document).ready(function($) {  
            $("#owl-demo").owlCarousel({
-         	slideSpeed : 300,
-         	autoPlay : true,
-         	navigation : false,
-         	pagination : false,
-         	singleItem:true
+            slideSpeed : 300,
+            autoPlay : true,
+            navigation : false,
+            pagination : false,
+            singleItem:true
            });
            $("#owl-demo2").owlCarousel({
-         	slideSpeed : 300,
-         	autoPlay : true,
-         	navigation : false,
-         	pagination : true,
-         	singleItem:true
+            slideSpeed : 300,
+            autoPlay : true,
+            navigation : false,
+            pagination : true,
+            singleItem:true
            });
-         });	
+         });   
           
       </script> 
    </body>
