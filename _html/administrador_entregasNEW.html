@@ -2,77 +2,76 @@
 <html>
     <head>
         <title>SILEN - Sistema Logístico de Entrega</title>
-        
-         <!--Define a viewport-->
+        <!--Define a viewport-->
         <meta name = "viewport" content="width=device-width, initial-scale=1.0"/>
-        
         <!--Define a viewport-->
         <meta charset = "utf-8"/>
-        
         <!--Adicionando o CSS Bootstrap-->
         <link href="../_bootstrap3/css/bootstrap.min.css" rel="stylesheet" media = "screen"/>
-        
         <!--Adicionando o CSS Personalizado-->
         <!--<link href="_bootstrap3/css/estilo.css" rel="stylesheet" media = "screen"/>-->
         <link href="../_css/master.css" rel="stylesheet" media = "screen"/>
+        <link rel="stylesheet" href="../_css/mapa-entregas.css">
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-F0D-EYpdOkrFVscHM6YAyAqYSa37F5A&libraries=places"></script>
+        <script type="text/javascript" src="../_js/responsee.js"></script>
 
-        
+
     </head>
 
     <body class="body">
 	        <nav class="navbar navbar-inverse navbar-fixed" role="navigation">
 	            <div class="container-fluid">
 	                <div class="navbar-header">
-	                    
+
 	                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#elementoCollapse1">
 	                        <span class="icon-bar"></span>
 	                        <span class="icon-bar"></span>
 	                        <span class="icon-bar"></span>
-	                    
+
 	                    </button>
-	                    
+
 	                    <a href="../_html/administrador_inicio.html" class="navbar-brand"><img src="../_img/logo3.jpg" alt=""></a>
 	                </div>
-	                
+
 	                <div class="collapse navbar-collapse" id="elementoCollapse1">
-	                    
+
 	                    <ul class="nav navbar-nav">
 	                        <li><a href="../_html/administrador_inicio.html">Inicio</a></li>
-	                        <li><a href="../_html/administrador_entregas.html">Entregas</a></li>            
-	                        <li><a href="../_html/administrador_rastrear.html">Rastrear</a></li>            
-	                        <li><a href="../_html/administrador_relatorio.html">Relatório</a></li>            
+	                        <li><a href="../_html/administrador_entregas.html">Entregas</a></li>
+	                        <li><a href="../_html/administrador_rastrear.html">Rastrear</a></li>
+	                        <li><a href="../_html/administrador_relatorio.html">Relatório</a></li>
 	                        <li class="dropdown">
 	                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Cadastros <span class="caret"></span></a>
 	                            <ul class="dropdown-menu" role="menu">
 	                                <li><a href="../_html/administrador_funcionario.html">Usuário</a></li>
 	                            </ul>
 	                        </li>
-	                        <li><a href="../_html/administrador_contato.html">Contato</a></li> 
+	                        <li><a href="../_html/administrador_contato.html">Contato</a></li>
 	                    </ul>
-	                    
+
 	                    <p class="navbar-text navbar-right">Olá <strong>fulano</strong>
 	                                                </p>
-	                    
+
 	                    <form class="navbar-form navbar-right" role="search">
 	                        <div class="form-group">
 	                            <input type="text" class="form-control" placeholder="busca">
 	                        </div>
 	                        <input type="submit" value="Ok" class="btn btn-primary"/>
-	                        
+
 	                        <button type="button" class="btn btn-default">Meu Cadastro</button>
-	                        
+
 	                    </form>
 	                </div>
-	
+
 	            </div>
-	
+
 	        </nav>
-        
-        
+
+
         <section>
            <div class="form form-group">
            		<form action="FrontController" method="post">
-           		
+
            		<fieldset>
 						<legend>Remetente</legend>
 				           	<div class="row">
@@ -81,9 +80,10 @@
 						           		<label>Remetente:</label>
 										<input type="text" name="txtRemetente" id="txtRemetente" maxlength="20" placeholder="Remetente">
 									</div>
-									<div class="col-md-2 col-sm-2 col-xs-2">
+									<div class="col-md-2 col-sm-2 col-xs-2" id="locationField">
 						           		<label>Endereço:</label>
-										<input type="text" name="txtEndereco" id="txtEndereco" maxlength="100" placeholder="Endereço">
+                          <input id="autocomplete" placeholder="Endereço" onFocus="geolocate()" type="text"></input>
+										<!--<input type="text" name="txtEndereco" id="txtEndereco" maxlength="100" placeholder="Endereço">-->
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 						           		<label>Numero:</label>
@@ -97,9 +97,10 @@
 						           		<label>Bairro:</label>
 										<input type="text" name="txtBairro" id="txtBairro" maxlength="100" placeholder="Bairro">
 									</div>
-									<div class="col-md-2 col-sm-2 col-xs-2">
+									<div class="col-md-2 col-sm-2 col-xs-2" colspan="3">
 						           		<label>Cidade:</label>
-										<input type="text" name="txtCidade" id="txtCidade" maxlength="100" placeholder="Cidade">
+                          <input class="field" id="locality" Use readonly="true"></input>
+										<!--<input type="text" name="txtCidade" id="txtCidade" maxlength="100" placeholder="Cidade">-->
 									</div>
 									<div class="col-md-1 col-sm-1 col-sm-1">
 						           		<label>Estado:</label>
@@ -138,7 +139,7 @@
 								</div>
 							</div>
 					</fieldset>
-					
+
 					<fieldset>
 						<legend>Destinatário</legend>
 				           	<div class="row">
@@ -149,7 +150,8 @@
 									</div>
 									<div class="col-md-2 col-sm-2 col-xs-2">
 						           		<label>Endereço:</label>
-										<input type="text" name="txtEnderecoDestinatario" id="txtEnderecoDestinatario" maxlength="100" placeholder="Endereço">
+                          <input id="autocomplete" placeholder="Endereço" onFocus="geolocate()" type="text"></input>
+										<!--<input type="text" name="txtEnderecoDestinatario" id="txtEnderecoDestinatario" maxlength="100" placeholder="Endereço">-->
 									</div>
 									<div class="col-md-1 col-sm-1 col-sm-1">
 						           		<label>Numero:</label>
@@ -167,7 +169,7 @@
 						           		<label>Cidade:</label>
 										<input type="text" name="txtCidadeDestinatario" id="txtCidadeDestinatario" maxlength="100" placeholder="Cidade">
 									</div>
-									
+
 									<div class="col-md-1 col-sm-1 col-sm-1">
 						           		<label>Estado:</label>
 						           		<!-- <input type="text" name="txtEstadoDestinatario" id="txtEstadoDestinatario" maxlength="100" placeholder="Estado"> -->
@@ -205,7 +207,7 @@
 								</div>
 							</div>
 					</fieldset>
-					
+
 					<fieldset>
 						<legend>Gerais</legend>
 						<div class="row">
@@ -218,7 +220,7 @@
 					           		<label>Id Origem:</label>
 									<input type="number" name="nIdOrigem" id="nIdOrigem" maxlength="20" placeholder="IdOrigem">
 								</div>
-								
+
 								<div class="col-md-2 col-sm-2 col-xs-2">
 					           		<label>Quantidade:</label><br>
 									<input type="number" name="nQuantidade" id="nQuantidade" maxlength="5" placeholder="Quantidade">
@@ -227,7 +229,7 @@
 					           		<label>Peso:</label><br>
 									<input type="number" name="nPeso" id="nPeso" maxlength="5" placeholder="Peso">
 								</div>
-								
+
 								<div class="col-md-2 col-sm-2 col-xs-2">
 					           		<label>Data Envio:</label>
 									<input type="date" name="dtEnvio" id="dtEnvio" maxlength="100" placeholder="01/01/1900">
@@ -238,7 +240,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="row">
 							<div class="col-md-2 col-sm-2 col-xs-2">
 					           	<label>Entregador:</label><br>
@@ -252,7 +254,7 @@
 					           	<label>Telefone:</label><br>
 								<input type="text" name="txtTelefone" id="txtTelefone" maxlength="50" placeholder="Telefone">
 							</div>
-							
+
 							<div class="col-md-1 col-sm-1 col-xs-1">
 				           		<label>Status:</label>
 								<select name="status" id="status">
@@ -263,8 +265,8 @@
 					                <option value="entregue">Entregue</option>
 					            </select>
 							</div>
-							
-							
+
+
 							<div class="col-md-1 col-sm-1 col-xs-1">
 				           		<label>Tipo:</label>
 								<select name="status" id="status">
@@ -276,9 +278,9 @@
 							</div>
 						</div>
 					</fieldset>
-					
-					
-						
+
+
+
 					<div class="form form-group">
 			           	<div class="row" id="btns">
 			           		<div class="btn btn-group" role="group">
@@ -286,25 +288,81 @@
 			           			<input type="submit" name="command" class="btn btn-warning" value="PesquisarEntregas"/>
 			           			<input type="submit" name="command" class="btn btn-default" value="Limpar"/>
 			           		</div>
-			           		<!-- 
+			           		<!--
 			           		<div class="col-md-3 col-sm-3">
 			           			<input type="submit" name="command" class="btn btn-warning" value="PesquisarEntregas"/>
 			           		</div>
-			           		
+
 			           		<div class="col-md-3 col-sm-3">
 			           			<input type="submit" name="command" class="btn btn-default" value="Limpar"/>
 			           		</div>
 			           		 -->
 						</div>
 		            </div>
-		            
+
 				</form>
-				
+
            </div>
-           
-       
+
+
        </section>
-        
+       <script>
+
+         var placeSearch, autocomplete;
+         var componentForm = {
+           street_number: 'short_name',
+           route: 'long_name',
+           locality: 'long_name',
+           administrative_area_level_1: 'short_name',
+           country: 'long_name',
+           postal_code: 'short_name'
+         };
+
+         function initAutocomplete() {
+
+           autocomplete = new google.maps.places.Autocomplete(
+               /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+               {types: ['geocode']});
+
+           autocomplete.addListener('place_changed', fillInAddress);
+         }
+
+         function fillInAddress() {
+           var place = autocomplete.getPlace();
+
+           for (var component in componentForm) {
+             document.getElementById(component).value = '';
+             document.getElementById(component).disabled = false;
+           }
+
+           for (var i = 0; i < place.address_components.length; i++) {
+             var addressType = place.address_components[i].types[0];
+             if (componentForm[addressType]) {
+               var val = place.address_components[i][componentForm[addressType]];
+               document.getElementById(addressType).value = val;
+             }
+           }
+         }
+
+         function geolocate() {
+           if (navigator.geolocation) {
+             navigator.geolocation.getCurrentPosition(function(position) {
+               var geolocation = {
+                 lat: position.coords.latitude,
+                 lng: position.coords.longitude
+               };
+               var circle = new google.maps.Circle({
+                 center: geolocation,
+                 radius: position.coords.accuracy
+               });
+               autocomplete.setBounds(circle.getBounds());
+             });
+           }
+         }
+       </script>
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-F0D-EYpdOkrFVscHM6YAyAqYSa37F5A&libraries=places&callback=initAutocomplete"
+           async defer></script>
+
         <script src = "../_bootstrap3/js/jquery-3.1.0.min.js"></script>
         <script src = "../_bootstrap3/js/bootstrap.min.js"></script>
         <script src = "../_bootstrap3/js/main.js"></script>

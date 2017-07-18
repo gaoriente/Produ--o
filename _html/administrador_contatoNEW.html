@@ -2,91 +2,157 @@
 <html>
     <head>
         <title>SILEN - Sistema Logístico de Entrega</title>
-        
+
          <!--Define a viewport-->
         <meta name = "viewport" content="width=device-width, initial-scale=1.0"/>
-        
+
         <!--Define a viewport-->
         <meta charset = "utf-8"/>
-        
+
         <!--Adicionando o CSS Bootstrap-->
         <link href="../_bootstrap3/css/bootstrap.min.css" rel="stylesheet" media = "screen"/>
-        
+
         <!--Adicionando o CSS Personalizado-->
         <!--<link href="_bootstrap3/css/estilo.css" rel="stylesheet" media = "screen"/>-->
         <link href="../_css/master.css" rel="stylesheet" media = "screen"/>
 
-        
+
     </head>
 
     <body class="body">
 	        <nav class="navbar navbar-inverse navbar-fixed" role="navigation">
 	            <div class="container-fluid">
 	                <div class="navbar-header">
-	                    
+
 	                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#elementoCollapse1">
 	                        <span class="icon-bar"></span>
 	                        <span class="icon-bar"></span>
 	                        <span class="icon-bar"></span>
-	                    
+
 	                    </button>
-	                    
+
 	                    <a href="../_html/administrador_inicio.html" class="navbar-brand"><img src="../_img/logo3.jpg" alt=""></a>
 	                </div>
-	                
+
 	                <div class="collapse navbar-collapse" id="elementoCollapse1">
-	                    
+
 	                    <ul class="nav navbar-nav">
 	                        <li><a href="../_html/administrador_inicio.html">Inicio</a></li>
-	                        <li><a href="../_html/administrador_entregas.html">Entregas</a></li>            
-	                        <li><a href="../_html/administrador_rastrear.html">Rastrear</a></li>            
-	                        <li><a href="../_html/administrador_relatorio.html">Relatório</a></li>            
+	                        <li><a href="../_html/administrador_entregas.html">Entregas</a></li>
+	                        <li><a href="../_html/administrador_rastrear.html">Rastrear</a></li>
+	                        <li><a href="../_html/administrador_relatorio.html">Relatório</a></li>
 	                        <li class="dropdown">
-	                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros <span class="caret"></span></a>
+	                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Cadastros <span class="caret"></span></a>
 	                            <ul class="dropdown-menu" role="menu">
-	                                <li><a href="#">Usuário</a></li>
+	                                <li><a href="../_html/administrador_funcionario.html">Usuário</a></li>
 	                            </ul>
 	                        </li>
-	                        <li><a href="../_html/administrador_contato.html">Contato</a></li> 
+	                        <li><a href="../_html/administrador_contato.html">Contato</a></li>
 	                    </ul>
-	                    
+
 	                    <p class="navbar-text navbar-right">Olá <strong>fulano</strong>
 	                                                </p>
-	                    
+
 	                    <form class="navbar-form navbar-right" role="search">
 	                        <div class="form-group">
 	                            <input type="text" class="form-control" placeholder="busca">
 	                        </div>
 	                        <input type="submit" value="Ok" class="btn btn-primary"/>
-	                        
+
 	                        <button type="button" class="btn btn-default">Meu Cadastro</button>
-	                        
+
 	                    </form>
 	                </div>
-	
+
 	            </div>
-	
+
 	        </nav>
-       <section>
-	
-		</section>
-      <!-- FOOTER -->   
-      <footer>
-         <div class="line">
-            <div class="s-12 l-6">
-               <p>USJT 2017, Grupo 8
-               </p>
-            </div>
-            <div class="s-12 l-6">
-               <p class="right">
-                  <a class="right" href="http://www.google.com" title="Sistema de Logistica e Entrega">Sistema de Logistica e Entrega</a>
-               </p>
-            </div>
-         </div>
-      </footer>
-    	<script src = "js/jquery-3.1.0.min.js"></script>
-        <script src = "js/bootstrap.min.js"></script>
-        <script src = "js/main.js"></script>
+
+
+        <section>
+           <div class="form form-group">
+           		<form action="FrontController" method="post">
+
+           		<fieldset>
+						<legend>CONTATO:</legend>
+				           	<div class="row">
+								<div class="input-group">
+						           	<div class="col-md-2 col-sm-2 col-xs-2">
+						           		<label>Nome:</label>
+										<input type="text" name="txtNome" id="txtNome" maxlength="20" placeholder="Nome">
+									</div>
+
+								</div>
+							</div>
+					</fieldset>
+
+
+				           	<div class="row">
+								<div class="input-group">
+						           	<div class="col-md-2 col-sm-2 col-xs-2">
+						           		<label>Email:</label>
+										<input type="text" name="txtEmail" id="txtEmail" maxlength="20" placeholder="Email">
+									</div>
+
+								</div>
+							</div>
+
+
+
+						<div class="row">
+							<div class="input-group">
+					           	<div class="col-md-2 col-sm-2 col-xs-2">
+					           		<label>Telefone:</label>
+									<input type="text" name="nTelefone" id="nITelefone" maxlength="20" placeholder="ITelefone">
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="row">
+							<div class="input-group">
+					           	<div class="col-md-2 col-sm-2 col-xs-2">
+					           		<label>Como podemos ajudar:</label>
+									<form>
+									 <TEXTAREA NAME="teste" ROWS=6 COLS=40>
+									 </TEXTAREA>
+									</form>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+
+
+					<div class="form form-group">
+			           	<div class="row" id="btns">
+			           		<div class="btn btn-group" role="group">
+			           			<input type="submit" name="command" class="btn btn-success" value="ENVIAR"/>
+
+			           		</div>
+			           		<!--
+			           		<div class="col-md-3 col-sm-3">
+			           			<input type="submit" name="command" class="btn btn-warning" value="PesquisarEntregas"/>
+			           		</div>
+
+			           		<div class="col-md-3 col-sm-3">
+			           			<input type="submit" name="command" class="btn btn-default" value="Limpar"/>
+			           		</div>
+			           		 -->
+						</div>
+		            </div>
+
+				</form>
+
+           </div>
+
+
+       </section>
+
+        <script src = "../_bootstrap3/js/jquery-3.1.0.min.js"></script>
+        <script src = "../_bootstrap3/js/bootstrap.min.js"></script>
+        <script src = "../_bootstrap3/js/main.js"></script>
     </body>
 
 </html>
